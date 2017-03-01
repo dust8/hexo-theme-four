@@ -2,9 +2,10 @@
   <h1><%= config.title %></h1>
   <nav>
     <ul class="menu">
-        <% for (name in config.menu||theme.menu) { %>
+      <% var menu = config.menu||theme.menu; %>
+        <% for (name in menu) { %>
           <li class="menu__item">
-            <a href="<%- url_for(config.menu[name]||theme.menu[name]) %>"><%= name %></a>
+            <a href="<%- url_for(menu[name]) %>"><%= name %></a>
           </li>
         <% } %>
       </ul>

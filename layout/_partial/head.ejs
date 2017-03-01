@@ -16,13 +16,18 @@
   <% if (config.rss){ %>
     <%- feed_tag("/atom.xml", {title:config.title}) %>
   <% } %>
-  <% if (config.favicon||theme.favicon){ %>
-    <%- favicon_tag(config.favicon||theme.favicon) %>
+
+  <% var favicon = config.favicon||theme.favicon; %>
+  <% if (favicon){ %>
+    <%- favicon_tag(favicon) %>
   <% } %>
+
   <title><%= config.title %></title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
   <%- css("css/style.css") %>
-  <% if (config.highlight_theme||theme.highlight_theme){ %>
-    <%- css("css/"+config.highlight_theme||theme.highlight_theme) %>
+
+  <% var highlight_theme = config.highlight_theme||theme.highlight_theme; %>
+  <% if (highlight_theme){ %>
+    <%- css("css/"+highlight_theme) %>
   <% } %>
 </head>
