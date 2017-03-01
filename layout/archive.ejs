@@ -1,8 +1,0 @@
-<ul class="archive">
-  <% page.posts.each(function (post) { %>
-    <li class="archive__item">
-      <time><%= date(post.date, "YYYY-MM-DD") %></time>
-      <a href="<%- url_for(post.path) %>"><%= post.title %></a>
-    </li>
-  <% }) %>
-</ul>
