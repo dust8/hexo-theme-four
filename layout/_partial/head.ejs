@@ -1,0 +1,28 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = 'archive';
+  } else if (is_category()){
+    title = page.category;
+  } else if (is_tag()){
+    title = page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <% if (theme.rss){ %>
+    <%- feed_tag(theme.rss, {title:config.title}) %>
+  <% } %>
+  <% if (theme.favicon){ %>
+    <%- favicon_tag(theme.favicon) %>
+  <% } %>
+  <title><%= config.title %></title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
+  <%- css("css/style.css") %>
+  <% if (theme.highlight_theme){ %>
+    <%- css("css/"+theme.highlight_theme) %>
+  <% } %>
+</head>
