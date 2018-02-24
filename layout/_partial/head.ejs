@@ -1,6 +1,6 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%
   var title = page.title;
 
@@ -12,22 +12,27 @@
     title = page.tag;
   }
   %>
-  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-  <% if (config.rss){ %>
-    <%- feed_tag("/atom.xml", {title:config.title}) %>
-  <% } %>
+    <title>
+      <% if (title){ %>
+        <%= title %> |
+          <% } %>
+            <%= config.title %>
+    </title>
+    <% if (config.rss){ %>
+      <%- feed_tag("/atom.xml", {title:config.title}) %>
+        <% } %>
 
-  <% var favicon = config.favicon||theme.favicon; %>
-  <% if (favicon){ %>
-    <%- favicon_tag(favicon) %>
-  <% } %>
+          <% var favicon = config.favicon||theme.favicon; %>
+            <% if (favicon){ %>
+              <%- favicon_tag(favicon) %>
+                <% } %>
 
-  <title><%= config.title %></title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
-  <%- css("css/style.css") %>
+                  <title>
+                    <%= config.title %>
+                  </title>
+                  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" rel="stylesheet" />
+                  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/<%= theme.highlight_theme %>.min.css" rel="stylesheet">
+                  <%- css("css/style.css") %>
 
-  <% var highlight_theme = config.highlight_theme||theme.highlight_theme; %>
-  <% if (highlight_theme){ %>
-    <%- css("css/"+highlight_theme) %>
-  <% } %>
+
 </head>

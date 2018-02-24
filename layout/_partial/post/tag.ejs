@@ -1,3 +1,5 @@
-<%- list_tags(post.tags,
-             {show_count: false,
-              class: "post__tag"}) %>
+<% post.tags.each(function (item){ %>
+    <span class="tag">
+        <%= item.name %>
+    </span>
+    <% }) %>

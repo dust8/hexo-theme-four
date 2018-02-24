@@ -1,6 +1,5 @@
-<%- list_categories(post.categories, {
-  show_count: false,
-  class: 'post__category',
-  style: 'none',
-  separator: ' > '
-}) %>
+<% post.categories.each(function (item){ %>
+  <span class="tag">
+    <%= item.name %>
+  </span>
+  <% }) %>
