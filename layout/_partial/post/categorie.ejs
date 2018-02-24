@@ -1,5 +1,7 @@
-<% post.categories.each(function (item){ %>
-  <span class="tag">
-    <%= item.name %>
-  </span>
-  <% }) %>
+<% if (post.categories != undefined && post.categories != null) { %>
+  <% post.categories.each(function (item){ %>
+    <span class="tag">
+      <%= item.name %>
+    </span>
+    <% }) %>
+      <% } %>
